@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var obj = {
+        a:{
+            b:{
+                b1:function(){
+                    return this;
+                }
+            }
+        }
+    }
+    console.log(obj.a.b.b1()===obj.a.b);
+    console.log(obj.a.b.b1.call(obj)===obj);
+
+    // var obj={};
+    // obj.test1=function () {
+    //     alert(this);
+    // };
+    // // obj.test1();
+    // var test2=obj.test1;
+    // test2();//obj
+
+
+    // function fun() {
+    //     // "use strict";//严格
+    //     return this;
+    // }
+    // console.log(fun()===undefined);//ture
+    // console.log(fun());//window
+
+    // "use strict";//严格模式
+    // console.log(this);
+    //全局作用域下this指向window
+    //计时器中this指向Window
+    //普通函数中this指向window
+    //延迟函数中this指向window
+
+    // var o={
+    //     f:function () {
+    //         return this.a+this.b;
+    //     }
+    // };
+    // var p=Object.create(o);//
+    // p.a=3;
+    // p.b=4;
+    // console.log(p.f());//5
+
+    // function fun(){
+    // 	console.log(this);
+    // }
+    // fun();
+
+    // box.onclick = function(){
+    // 	console.log(this);
+    // 	window.setInterval(function(){
+    // 		console.log(this);
+    // 	},1000);
+    // }
+
+    // alert(this===window);
+    // alert(this==document.documentElement);
+
+    // var obj = {};
+    // obj.a  = function(){
+    // 	console.log(this===obj);
+    // }
+    // obj.a();
+    // var obj = {
+    // 	a:function(){
+    // 		console.log(this);
+    // 	}
+    // }
+    // obj.a();
+    // var a = "你好";
+    // a == "2" ? alert(true) : alert(false);
+    // a === "2" ? alert(true) : alert(false);
+    // var arr = [1];
+    // var arr1 = arr;
+    // alert(arr==arr1);
+
+    // var obj =  {}
+    // var obj1 = {};
+    // alert(obj==obj1);
+
+
+</script>
+</body>
+</html>

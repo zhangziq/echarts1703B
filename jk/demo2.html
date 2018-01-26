@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // console.log(this.document===document);//true
+    // console.log(this===window);//window
+    // // 在全局环境下，this 始终指向全局对象（window）, 无论是否严格模式；
+    // this.a=35;
+    // console.log(window.a);//35
+
+    // var obj={};
+    // obj.test1=function () {
+    //     alert(this);
+    // };
+    // // obj.test1();
+    // var test2=obj.test1;
+    // test2();//obj
+
+    // //普通情况下  严格模式true
+    // //非严格模式下指向window
+    function fun() {
+        // "use strict";//严格
+        return this;
+    }
+    // console.log(fun()===undefined);//ture
+    console.log(fun());//window
+
+    // //多层嵌套对象 this指向最近的对象
+    var obj = {
+        a:{
+            b:{
+                b1:function(){
+                    return this;
+                }
+            }
+        }
+    }
+    // console.log(obj.a.b.b1()===obj.a.b);//true
+    console.log(obj.a.b.b1.call(obj)===obj);//true
+
+    //全局作用域下this指向window
+    //计时器中this指向Window
+    //延迟函数中this指向window
+    //普通函数中this指向window
+    //IE  attchEvent中默认的指向是window
+
+</script>
+</body>
+</html>
